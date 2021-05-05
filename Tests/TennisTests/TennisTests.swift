@@ -1,8 +1,20 @@
 import Nimble
 import Quick
-@testable import Tennis
-import XCTest
+
+class Tennis {
+    func score() -> String {
+        return "love all"
+    }
+}
 
 final class TennisTests: QuickSpec {
-    override func spec() {}
+    override func spec() {
+        describe("Score") {
+            it("Should be love all", closure: {
+                let tennis = Tennis()
+                expect(tennis.score()).to(be("love all"))
+
+            })
+        }
+    }
 }
