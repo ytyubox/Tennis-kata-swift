@@ -1,11 +1,8 @@
-    import XCTest
-    @testable import Tennis
+import Nimble
+import Quick
+@testable import Tennis
+import XCTest
 
-    final class TennisTests: XCTestCase {
-        func testExample() {
-            // This is an example of a functional test case.
-            // Use XCTAssert and related functions to verify your tests produce the correct
-            // results.
-            XCTAssertEqual(Tennis().text, "Hello, World!")
-        }
-    }
+final class TennisTests: QuickSpec {
+    override func spec() {}
+}
