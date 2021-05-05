@@ -1,11 +1,6 @@
 import Nimble
 import Quick
 
-class Tennis {
-    func score() -> String {
-        return "love all"
-    }
-}
 
 final class TennisTests: QuickSpec {
     override func spec() {
