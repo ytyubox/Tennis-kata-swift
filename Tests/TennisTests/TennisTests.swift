@@ -3,13 +3,22 @@ import Quick
 
 
 final class TennisTests: QuickSpec {
+    
     override func spec() {
         describe("Score") {
-            it("Should be love all", closure: {
-                let tennis = Tennis()
-                expect(tennis.score()).to(be("love all"))
-
-            })
+            
+            let tennis = Tennis()
+            func scrollShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
+                expect(file: file, line: line, tennis.score()).to(equal(score))
+            }
+            
+            it("Should be love all") {
+                scrollShouldBe("love all")
+            }
+            it("Should be fifteen love") {
+                tennis.firstPlayerScore()
+                scrollShouldBe("fifteen love")
+            }
         }
     }
 }
