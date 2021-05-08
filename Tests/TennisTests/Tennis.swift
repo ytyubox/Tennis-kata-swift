@@ -16,7 +16,7 @@ class Tennis {
                 if isAdv() {
                     return advScore()
                 }
-                return "\(advPlayer()) win"
+                return winScore()
             }
             return lookupScore()
         }
@@ -68,5 +68,9 @@ class Tennis {
 
     func advScore() -> String {
         "\(advPlayer()) adv"
+    }
+
+    func winScore() -> String {
+        "\(advPlayer()) win"
     }
 }
