@@ -15,7 +15,8 @@ class Tennis {
             if firstPlayerScoreTime > 3 || secondPlayerScoreTime > 3 {
                 if isAdv() {
                     return "\(advPlayer()) adv"
-                } else {}
+                }
+                return "\(advPlayer()) win"
             }
             return lookupScore()
         }

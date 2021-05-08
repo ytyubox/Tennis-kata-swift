@@ -77,6 +77,11 @@ final class TennisTests: QuickSpec {
                 givenSecondPlayerScoreTimes(1)
                 scoreShouldBe("Tom adv")
             }
+            it("should be second player win") {
+                givenDuece()
+                givenSecondPlayerScoreTimes(2)
+                scoreShouldBe("Tom win")
+            }
         }
     }
 }
