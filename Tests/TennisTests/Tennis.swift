@@ -14,10 +14,7 @@ class Tennis {
         if isScoreDifferent() {
             if firstPlayerScoreTime > 3 || secondPlayerScoreTime > 3 {
                 if abs(firstPlayerScoreTime - secondPlayerScoreTime) == 1 {
-                    let advPlayer = firstPlayerScoreTime > secondPlayerScoreTime
-                        ? firstPlayerName
-                        : secondPlayerName
-                    return "\(advPlayer) adv"
+                    return "\(advPlayer()) adv"
                 } else {}
             }
             return lookupScore()
@@ -56,5 +53,11 @@ class Tennis {
     ]
     func lookupScore() -> String {
         "\(scoreLookup[firstPlayerScoreTime]!) \(scoreLookup[secondPlayerScoreTime]!)"
+    }
+
+    fileprivate func advPlayer() -> String {
+        return firstPlayerScoreTime > secondPlayerScoreTime
+            ? firstPlayerName
+            : secondPlayerName
     }
 }
