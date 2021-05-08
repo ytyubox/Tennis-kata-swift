@@ -1,18 +1,24 @@
 class Tennis {
-    internal init(firstPlayerName: String) {
+    internal init(firstPlayerName: String,
+                  secondPlayerName: String)
+    {
         self.firstPlayerName = firstPlayerName
+        self.secondPlayerName = secondPlayerName
     }
 
     var firstPlayerScoreTime = 0,
         secondPlayerScoreTime = 0
-    let firstPlayerName: String
+    let firstPlayerName, secondPlayerName: String
 
     func score() -> String {
         if isScoreDifferent() {
-            if firstPlayerScoreTime > 3 {
-                if firstPlayerScoreTime - secondPlayerScoreTime == 1 {
-                    return "\(firstPlayerName) adv"
-                }
+            if firstPlayerScoreTime > 3 || secondPlayerScoreTime > 3 {
+                if abs(firstPlayerScoreTime - secondPlayerScoreTime) == 1 {
+                    let advPlayer = firstPlayerScoreTime > secondPlayerScoreTime
+                        ? firstPlayerName
+                        : secondPlayerName
+                    return "\(advPlayer) adv"
+                } else {}
             }
             return lookupScore()
         }
