@@ -16,10 +16,9 @@ class Tennis {
                 ? advState()
                 : lookupScore()
         }
-        if isDuece() {
-            return duece()
-        }
-        return sameScore()
+        return isDuece()
+            ? duece()
+            : sameScore()
     }
 
     func firstPlayerScore() {
