@@ -12,10 +12,9 @@ class Tennis {
 
     func score() -> String {
         if isScoreDifferent() {
-            if isReadyForGamePoint() {
-                return advState()
-            }
-            return lookupScore()
+            return isReadyForGamePoint()
+                ? advState()
+                : lookupScore()
         }
         if isDuece() {
             return duece()
