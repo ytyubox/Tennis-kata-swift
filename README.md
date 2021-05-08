@@ -9,6 +9,22 @@ Inspire by Joey Chen's Video:【極速開發】WebStorm + JavaScript - v2
 2. Follow TDD cycle
 3. Format by SwiftFormat
 
+## Program API
+
+```swift
+// Swift
+public class Tennis {
+
+    public init(firstPlayerName: String, secondPlayerName: String)
+
+    public func score() -> String
+
+    public func firstPlayerScore()
+
+    public func secondPlayerScore()
+}
+```
+
 ## Reference
 
 1.  Joey Chen's Video:【極速開發】WebStorm + JavaScript - v2
