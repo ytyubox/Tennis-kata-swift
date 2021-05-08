@@ -8,23 +8,7 @@ final class TennisTests: QuickSpec {
             beforeEach {
                 tennis = Tennis(firstPlayerName: "YU", secondPlayerName: "Tom")
             }
-            func scoreShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
-                expect(file: file, line: line, tennis.score()).to(equal(score))
-            }
-            func givenFirstFirstPlayerScoreTimes(_ times: Int) {
-                for _ in 1 ... times {
-                    tennis.firstPlayerScore()
-                }
-            }
-            func givenSecondPlayerScoreTimes(_ times: Int) {
-                for _ in 1 ... times {
-                    tennis.secondPlayerScore()
-                }
-            }
-            func givenDuece() {
-                givenFirstFirstPlayerScoreTimes(3)
-                givenSecondPlayerScoreTimes(3)
-            }
+
             it("Should be love all") {
                 scoreShouldBe("love all")
             }
@@ -81,6 +65,23 @@ final class TennisTests: QuickSpec {
                 givenDuece()
                 givenSecondPlayerScoreTimes(2)
                 scoreShouldBe("Tom win")
+            }
+            func scoreShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
+                expect(file: file, line: line, tennis.score()).to(equal(score))
+            }
+            func givenFirstFirstPlayerScoreTimes(_ times: Int) {
+                for _ in 1 ... times {
+                    tennis.firstPlayerScore()
+                }
+            }
+            func givenSecondPlayerScoreTimes(_ times: Int) {
+                for _ in 1 ... times {
+                    tennis.secondPlayerScore()
+                }
+            }
+            func givenDuece() {
+                givenFirstFirstPlayerScoreTimes(3)
+                givenSecondPlayerScoreTimes(3)
             }
         }
     }
