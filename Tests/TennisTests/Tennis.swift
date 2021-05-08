@@ -11,8 +11,8 @@ class Tennis {
         if secondPlayerScoreTime != firstPlayerScoreTime {
             return "\(scoreLookup[firstPlayerScoreTime]!) \(scoreLookup[secondPlayerScoreTime]!)"
         }
-        if firstPlayerScoreTime >= 3 {
-            return "duece"
+        if isDuece() {
+            return duece()
         }
         return "\(scoreLookup[firstPlayerScoreTime]!) all"
     }
@@ -23,5 +23,13 @@ class Tennis {
 
     func secondPlayerScore() {
         secondPlayerScoreTime += 1
+    }
+
+    func isDuece() -> Bool {
+        firstPlayerScoreTime >= 3
+    }
+
+    func duece() -> String {
+        "duece"
     }
 }
