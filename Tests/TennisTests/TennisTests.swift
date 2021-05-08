@@ -54,6 +54,11 @@ final class TennisTests: QuickSpec {
                 givenSecondPlayerScoreTimes(1)
                 scrollShouldBe("fifteen all")
             }
+            it("Should be thirty all") {
+                givenFirstFirstPlayerScoreTimes(2)
+                givenSecondPlayerScoreTimes(2)
+                scrollShouldBe("thirty all")
+            }
         }
     }
 }
