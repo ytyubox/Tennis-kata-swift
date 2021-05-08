@@ -11,14 +11,13 @@ class Tennis {
     let firstPlayerName, secondPlayerName: String
 
     func score() -> String {
-        if isScoreDifferent() {
-            return isReadyForGamePoint()
+        isScoreDifferent()
+            ? isReadyForGamePoint()
                 ? advState()
                 : lookupScore()
-        }
-        return isDuece()
-            ? duece()
-            : sameScore()
+            : isDuece()
+                ? duece()
+                : sameScore()
     }
 
     func firstPlayerScore() {
