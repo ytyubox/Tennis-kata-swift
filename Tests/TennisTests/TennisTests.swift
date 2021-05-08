@@ -6,7 +6,7 @@ final class TennisTests: QuickSpec {
         describe("Score") {
             var tennis: Tennis!
             beforeEach {
-                tennis = Tennis(firstPlayerName: "first player")
+                tennis = Tennis(firstPlayerName: "YU")
             }
             func scoreShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
                 expect(file: file, line: line, tennis.score()).to(equal(score))
@@ -70,7 +70,7 @@ final class TennisTests: QuickSpec {
             it("should be first player adv") {
                 givenDuece()
                 givenFirstFirstPlayerScoreTimes(1)
-                scoreShouldBe("first player adv")
+                scoreShouldBe("YU adv")
             }
         }
     }
