@@ -21,6 +21,10 @@ final class TennisTests: QuickSpec {
                     tennis.secondPlayerScore()
                 }
             }
+            func givenDuece() {
+                givenFirstFirstPlayerScoreTimes(3)
+                givenSecondPlayerScoreTimes(3)
+            }
             it("Should be love all") {
                 scrollShouldBe("love all")
             }
@@ -59,9 +63,8 @@ final class TennisTests: QuickSpec {
                 givenSecondPlayerScoreTimes(2)
                 scrollShouldBe("thirty all")
             }
-            it("Should be forty all") {
-                givenFirstFirstPlayerScoreTimes(3)
-                givenSecondPlayerScoreTimes(3)
+            it("Should be duece") {
+                givenDuece()
                 scrollShouldBe("duece")
             }
         }
