@@ -1,16 +1,16 @@
-class Tennis {
-    internal init(firstPlayerName: String,
-                  secondPlayerName: String)
+public class Tennis {
+    public init(firstPlayerName: String,
+                secondPlayerName: String)
     {
         self.firstPlayerName = firstPlayerName
         self.secondPlayerName = secondPlayerName
     }
 
-    var firstPlayerScoreTime = 0,
-        secondPlayerScoreTime = 0
-    let firstPlayerName, secondPlayerName: String
+    private var firstPlayerScoreTime = 0,
+                secondPlayerScoreTime = 0
+    private let firstPlayerName, secondPlayerName: String
 
-    func score() -> String {
+    public func score() -> String {
         isScoreDifferent()
             ? isReadyForGamePoint()
                 ? advState()
@@ -20,63 +20,63 @@ class Tennis {
                 : sameScore()
     }
 
-    func firstPlayerScore() {
+    public func firstPlayerScore() {
         firstPlayerScoreTime += 1
     }
 
-    func secondPlayerScore() {
+    public func secondPlayerScore() {
         secondPlayerScoreTime += 1
     }
 
-    func isDuece() -> Bool {
+    private func isDuece() -> Bool {
         firstPlayerScoreTime >= 3
     }
 
-    func sameScore() -> String {
+    private func sameScore() -> String {
         "\(scoreLookup[firstPlayerScoreTime]!) all"
     }
 
-    func duece() -> String {
+    private func duece() -> String {
         "duece"
     }
 
-    func isScoreDifferent() -> Bool {
+    private func isScoreDifferent() -> Bool {
         return secondPlayerScoreTime != firstPlayerScoreTime
     }
 
-    let scoreLookup = [
+    private let scoreLookup = [
         0: "love",
         1: "fifteen",
         2: "thirty",
         3: "forty",
     ]
-    func lookupScore() -> String {
+    private func lookupScore() -> String {
         "\(scoreLookup[firstPlayerScoreTime]!) \(scoreLookup[secondPlayerScoreTime]!)"
     }
 
-    fileprivate func advPlayer() -> String {
+    private func advPlayer() -> String {
         return firstPlayerScoreTime > secondPlayerScoreTime
             ? firstPlayerName
             : secondPlayerName
     }
 
-    fileprivate func isAdv() -> Bool {
+    private func isAdv() -> Bool {
         return abs(firstPlayerScoreTime - secondPlayerScoreTime) == 1
     }
 
-    func advScore() -> String {
+    private func advScore() -> String {
         "\(advPlayer()) adv"
     }
 
-    func winScore() -> String {
+    private func winScore() -> String {
         "\(advPlayer()) win"
     }
 
-    fileprivate func isReadyForGamePoint() -> Bool {
+    private func isReadyForGamePoint() -> Bool {
         return firstPlayerScoreTime > 3 || secondPlayerScoreTime > 3
     }
 
-    fileprivate func advState() -> String {
+    private func advState() -> String {
         if isAdv() {
             return advScore()
         }
