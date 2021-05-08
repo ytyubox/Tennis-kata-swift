@@ -28,6 +28,10 @@ final class TennisTests: QuickSpec {
                 givenFirstFirstPlayerScoreTimes(2)
                 scrollShouldBe("thirty love")
             }
+            it("Should be forty love") {
+                givenFirstFirstPlayerScoreTimes(3)
+                scrollShouldBe("forty love")
+            }
         }
     }
 }

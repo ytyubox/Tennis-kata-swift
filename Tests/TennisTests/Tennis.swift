@@ -4,8 +4,9 @@ class Tennis {
         let scoreLookup = [
             1: "fifteen",
             2: "thirty",
+            3: "forty",
         ]
-        if firstPlayerScoreTime == 1 || firstPlayerScoreTime == 2 {
+        if firstPlayerScoreTime > 0 {
             return "\(scoreLookup[firstPlayerScoreTime]!) love"
         }
 
