@@ -11,6 +11,9 @@ class Tennis {
         if secondPlayerScoreTime != firstPlayerScoreTime {
             return "\(scoreLookup[firstPlayerScoreTime]!) \(scoreLookup[secondPlayerScoreTime]!)"
         }
+        if firstPlayerScoreTime == 1 {
+            return "fifteen all"
+        }
         return "love all"
     }
 
