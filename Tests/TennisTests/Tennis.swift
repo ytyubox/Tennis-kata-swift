@@ -12,7 +12,7 @@ class Tennis {
 
     func score() -> String {
         if isScoreDifferent() {
-            if firstPlayerScoreTime > 3 || secondPlayerScoreTime > 3 {
+            if isReadyForGamePoint() {
                 if isAdv() {
                     return advScore()
                 }
@@ -72,5 +72,9 @@ class Tennis {
 
     func winScore() -> String {
         "\(advPlayer()) win"
+    }
+
+    fileprivate func isReadyForGamePoint() -> Bool {
+        return firstPlayerScoreTime > 3 || secondPlayerScoreTime > 3
     }
 }
