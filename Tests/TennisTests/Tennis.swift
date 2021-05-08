@@ -1,9 +1,19 @@
 class Tennis {
+    internal init(firstPlayerName: String) {
+        self.firstPlayerName = firstPlayerName
+    }
+
     var firstPlayerScoreTime = 0,
         secondPlayerScoreTime = 0
+    let firstPlayerName: String
 
     func score() -> String {
         if isScoreDifferent() {
+            if firstPlayerScoreTime > 3 {
+                if firstPlayerScoreTime - secondPlayerScoreTime == 1 {
+                    return "\(firstPlayerName) adv"
+                }
+            }
             return lookupScore()
         }
         if isDuece() {
