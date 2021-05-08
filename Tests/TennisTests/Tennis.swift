@@ -3,17 +3,14 @@ class Tennis {
         secondPlayerScoreTime = 0
     func score() -> String {
         let scoreLookup = [
+            0: "love",
             1: "fifteen",
             2: "thirty",
             3: "forty",
         ]
-        if secondPlayerScoreTime > 0 {
-            return "love \(scoreLookup[secondPlayerScoreTime]!)"
+        if secondPlayerScoreTime > 0 || firstPlayerScoreTime > 0 {
+            return "\(scoreLookup[firstPlayerScoreTime]!) \(scoreLookup[secondPlayerScoreTime]!)"
         }
-        if firstPlayerScoreTime > 0 {
-            return "\(scoreLookup[firstPlayerScoreTime]!) love"
-        }
-
         return "love all"
     }
 
