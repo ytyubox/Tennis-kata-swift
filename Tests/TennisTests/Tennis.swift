@@ -7,11 +7,8 @@ class Tennis {
             2: "thirty",
             3: "forty",
         ]
-        if secondPlayerScoreTime == 1 {
-            return "love fifteen"
-        }
-        if secondPlayerScoreTime == 2 {
-            return "love thirty"
+        if secondPlayerScoreTime > 0 {
+            return "love \(scoreLookup[secondPlayerScoreTime]!)"
         }
         if firstPlayerScoreTime > 0 {
             return "\(scoreLookup[firstPlayerScoreTime]!) love"
