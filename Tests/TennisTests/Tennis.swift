@@ -10,6 +10,9 @@ class Tennis {
         if secondPlayerScoreTime == 1 {
             return "love fifteen"
         }
+        if secondPlayerScoreTime == 2 {
+            return "love thirty"
+        }
         if firstPlayerScoreTime > 0 {
             return "\(scoreLookup[firstPlayerScoreTime]!) love"
         }
