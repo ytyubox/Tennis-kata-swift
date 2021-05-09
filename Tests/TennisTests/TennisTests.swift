@@ -71,6 +71,11 @@ final class TennisTests: QuickSpec {
             givenSecondPlayerScore(1)
             expect(tennis.score()).to(equal("fifteen all"))
         }
+        it("Should be thirty all") {
+            givenFirstPlayerScore(2)
+            givenSecondPlayerScore(2)
+            expect(tennis.score()).to(equal("thirty all"))
+        }
 
         func scoreShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
             expect(file: file, line: line, tennis.score()).to(equal(score))
