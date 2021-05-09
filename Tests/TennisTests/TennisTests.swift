@@ -18,7 +18,9 @@ class Tennis {
         if firstPlayerScoreTimes != secondPlayerScoreTimes {
             return "\(scoreLookup[firstPlayerScoreTimes]!) \(scoreLookup[secondPlayerScoreTimes]!)"
         }
-
+        if firstPlayerScoreTimes >= 3, secondPlayerScoreTimes >= 3 {
+            return "duece"
+        }
         return "\(scoreLookup[firstPlayerScoreTimes]!) all"
     }
 
@@ -75,6 +77,11 @@ final class TennisTests: QuickSpec {
             givenFirstPlayerScore(2)
             givenSecondPlayerScore(2)
             expect(tennis.score()).to(equal("thirty all"))
+        }
+        it("Should be duece") {
+            givenFirstPlayerScore(3)
+            givenSecondPlayerScore(3)
+            expect(tennis.score()).to(equal("duece"))
         }
 
         func scoreShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
