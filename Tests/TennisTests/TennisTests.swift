@@ -9,18 +9,17 @@ class Tennis {
     var secondPlayerScoreTimes = 0
     func score() -> String {
         let scoreLookup = [
+            0: "love",
             1: "fifteen",
             2: "thirty",
             3: "forty",
         ]
 
-        if (1 ... 3).contains(firstPlayerScoreTimes) {
-            return "\(scoreLookup[firstPlayerScoreTimes]!) love"
+        if firstPlayerScoreTimes != secondPlayerScoreTimes {
+            return "\(scoreLookup[firstPlayerScoreTimes]!) \(scoreLookup[secondPlayerScoreTimes]!)"
         }
-        if (1 ... 3).contains(secondPlayerScoreTimes) {
-            return "love \(scoreLookup[secondPlayerScoreTimes]!)"
-        }
-        return "love all"
+
+        return "\(scoreLookup[firstPlayerScoreTimes]!) all"
     }
 
     func firstPlayerScore() {
@@ -66,6 +65,11 @@ final class TennisTests: QuickSpec {
         it("Should be love forty") {
             givenSecondPlayerScore(3)
             expect(tennis.score()).to(equal("love forty"))
+        }
+        it("Should be fifteen all") {
+            givenFirstPlayerScore(1)
+            givenSecondPlayerScore(1)
+            expect(tennis.score()).to(equal("fifteen all"))
         }
 
         func scoreShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
