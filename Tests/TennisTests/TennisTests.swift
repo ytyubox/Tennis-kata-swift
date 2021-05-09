@@ -56,12 +56,11 @@ final class TennisTests: QuickSpec {
             expect(tennis.score()).to(equal("forty love"))
         }
         it("Should be love fifteen") {
-            tennis.secondPlayerScore()
+            givenSecondPlayerScore(1)
             expect(tennis.score()).to(equal("love fifteen"))
         }
         it("Should be love thirty") {
-            tennis.secondPlayerScore()
-            tennis.secondPlayerScore()
+            givenSecondPlayerScore(2)
             expect(tennis.score()).to(equal("love thirty"))
         }
 
@@ -71,6 +70,11 @@ final class TennisTests: QuickSpec {
         func givenFirstScore(_ times: Int) {
             for _ in 1 ... times {
                 tennis.firstPlayerScore()
+            }
+        }
+        func givenSecondPlayerScore(_ times: Int) {
+            for _ in 1 ... times {
+                tennis.secondPlayerScore()
             }
         }
     }
