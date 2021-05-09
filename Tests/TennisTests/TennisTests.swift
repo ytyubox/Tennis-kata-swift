@@ -90,19 +90,16 @@ final class TennisTests: QuickSpec {
             scoreShouldBe("thirty all")
         }
         it("Should be duece") {
-            givenFirstPlayerScore(3)
-            givenSecondPlayerScore(3)
+            givenDuece()
             scoreShouldBe("duece")
         }
         it("Should be first player adv") {
-            givenFirstPlayerScore(3)
-            givenSecondPlayerScore(3)
+            givenDuece()
             givenFirstPlayerScore(1)
             scoreShouldBe("Yu adv")
         }
         it("Should be first player adv") {
-            givenFirstPlayerScore(3)
-            givenSecondPlayerScore(3)
+            givenDuece()
             givenSecondPlayerScore(1)
             scoreShouldBe("Tom adv")
         }
@@ -119,6 +116,10 @@ final class TennisTests: QuickSpec {
             for _ in 1 ... times {
                 tennis.secondPlayerScore()
             }
+        }
+        func givenDuece() {
+            givenFirstPlayerScore(3)
+            givenSecondPlayerScore(3)
         }
     }
 }
