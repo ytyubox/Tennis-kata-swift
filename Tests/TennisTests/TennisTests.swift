@@ -1,6 +1,9 @@
 import Nimble
 import Quick
 import XCTest
+
+// MARK: - Tennis
+
 class Tennis {
     var firstPlayerScoreTimes = 0
     func score() -> String {
@@ -15,6 +18,8 @@ class Tennis {
     }
 }
 
+// MARK: - TennisTests
+
 final class TennisTests: QuickSpec {
     override func spec() {
         var tennis: Tennis!
@@ -22,11 +27,14 @@ final class TennisTests: QuickSpec {
             tennis = Tennis()
         }
         it("Should be love all") {
-            expect(tennis.score()).to(equal("love all"))
+            scoreShouldBe("love all")
         }
         it("Should be fifteen love") {
             tennis.firstPlayerScore()
             expect(tennis.score()).to(equal("fifteen love"))
+        }
+        func scoreShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
+            expect(file: file, line: line, tennis.score()).to(equal(score))
         }
     }
 }
