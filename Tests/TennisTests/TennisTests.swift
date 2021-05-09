@@ -22,11 +22,14 @@ class Tennis {
             3: "forty",
         ]
         if firstPlayerScoreTimes >= 3, secondPlayerScoreTimes >= 3 {
+            if firstPlayerScoreTimes == secondPlayerScoreTimes {
+                return "duece"
+            }
+            let advPlayerName = firstPlayerScoreTimes > secondPlayerScoreTimes ? firstPlayerName : secondPlayerName
             if abs(firstPlayerScoreTimes - secondPlayerScoreTimes) == 1 {
-                let advPlayerName = firstPlayerScoreTimes > secondPlayerScoreTimes ? firstPlayerName : secondPlayerName
                 return "\(advPlayerName) adv"
             }
-            return "duece"
+            return "\(advPlayerName) win"
         }
 
         if firstPlayerScoreTimes != secondPlayerScoreTimes {
@@ -102,6 +105,11 @@ final class TennisTests: QuickSpec {
             givenDuece()
             givenSecondPlayerScore(1)
             scoreShouldBe("Tom adv")
+        }
+        it("Should be Tom win") {
+            givenDuece()
+            givenSecondPlayerScore(2)
+            scoreShouldBe("Tom win")
         }
 
         func scoreShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
