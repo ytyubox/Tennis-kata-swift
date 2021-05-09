@@ -10,6 +10,9 @@ class Tennis {
         if firstPlayerScoreTimes == 1 {
             return "fifteen love"
         }
+        if firstPlayerScoreTimes == 2 {
+            return "thirty love"
+        }
         return "love all"
     }
 
@@ -32,6 +35,11 @@ final class TennisTests: QuickSpec {
         it("Should be fifteen love") {
             tennis.firstPlayerScore()
             expect(tennis.score()).to(equal("fifteen love"))
+        }
+        it("Should be thirty love") {
+            tennis.firstPlayerScore()
+            tennis.firstPlayerScore()
+            expect(tennis.score()).to(equal("thirty love"))
         }
         func scoreShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
             expect(file: file, line: line, tennis.score()).to(equal(score))
