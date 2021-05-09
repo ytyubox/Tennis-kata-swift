@@ -44,15 +44,15 @@ final class TennisTests: QuickSpec {
             scoreShouldBe("love all")
         }
         it("Should be fifteen love") {
-            givenFirstScore(1)
+            givenFirstPlayerScore(1)
             expect(tennis.score()).to(equal("fifteen love"))
         }
         it("Should be thirty love") {
-            givenFirstScore(2)
+            givenFirstPlayerScore(2)
             expect(tennis.score()).to(equal("thirty love"))
         }
         it("Should be forty love") {
-            givenFirstScore(3)
+            givenFirstPlayerScore(3)
             expect(tennis.score()).to(equal("forty love"))
         }
         it("Should be love fifteen") {
@@ -71,7 +71,7 @@ final class TennisTests: QuickSpec {
         func scoreShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
             expect(file: file, line: line, tennis.score()).to(equal(score))
         }
-        func givenFirstScore(_ times: Int) {
+        func givenFirstPlayerScore(_ times: Int) {
             for _ in 1 ... times {
                 tennis.firstPlayerScore()
             }
