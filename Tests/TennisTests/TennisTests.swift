@@ -5,8 +5,13 @@ import XCTest
 // MARK: - Tennis
 
 class Tennis {
+    internal init(firstPlayerName: String) {
+        self.firstPlayerName = firstPlayerName
+    }
+
     var firstPlayerScoreTimes = 0
     var secondPlayerScoreTimes = 0
+    let firstPlayerName: String
     func score() -> String {
         let scoreLookup = [
             0: "love",
@@ -14,12 +19,15 @@ class Tennis {
             2: "thirty",
             3: "forty",
         ]
+        if firstPlayerScoreTimes >= 3, secondPlayerScoreTimes >= 3 {
+            if firstPlayerScoreTimes - secondPlayerScoreTimes == 1 {
+                return "\(firstPlayerName) adv"
+            }
+            return "duece"
+        }
 
         if firstPlayerScoreTimes != secondPlayerScoreTimes {
             return "\(scoreLookup[firstPlayerScoreTimes]!) \(scoreLookup[secondPlayerScoreTimes]!)"
-        }
-        if firstPlayerScoreTimes >= 3, secondPlayerScoreTimes >= 3 {
-            return "duece"
         }
         return "\(scoreLookup[firstPlayerScoreTimes]!) all"
     }
@@ -39,7 +47,7 @@ final class TennisTests: QuickSpec {
     override func spec() {
         var tennis: Tennis!
         beforeEach {
-            tennis = Tennis()
+            tennis = Tennis(firstPlayerName: "Yu")
         }
         it("Should be love all") {
             scoreShouldBe("love all")
@@ -82,6 +90,12 @@ final class TennisTests: QuickSpec {
             givenFirstPlayerScore(3)
             givenSecondPlayerScore(3)
             scoreShouldBe("duece")
+        }
+        it("Should be first player adv") {
+            givenFirstPlayerScore(3)
+            givenSecondPlayerScore(3)
+            givenFirstPlayerScore(1)
+            scoreShouldBe("Yu adv")
         }
 
         func scoreShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
