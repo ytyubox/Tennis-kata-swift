@@ -46,42 +46,42 @@ final class TennisTests: QuickSpec {
         }
         it("Should be fifteen love") {
             givenFirstPlayerScore(1)
-            expect(tennis.score()).to(equal("fifteen love"))
+            scoreShouldBe("fifteen love")
         }
         it("Should be thirty love") {
             givenFirstPlayerScore(2)
-            expect(tennis.score()).to(equal("thirty love"))
+            scoreShouldBe("thirty love")
         }
         it("Should be forty love") {
             givenFirstPlayerScore(3)
-            expect(tennis.score()).to(equal("forty love"))
+            scoreShouldBe("forty love")
         }
         it("Should be love fifteen") {
             givenSecondPlayerScore(1)
-            expect(tennis.score()).to(equal("love fifteen"))
+            scoreShouldBe("love fifteen")
         }
         it("Should be love thirty") {
             givenSecondPlayerScore(2)
-            expect(tennis.score()).to(equal("love thirty"))
+            scoreShouldBe("love thirty")
         }
         it("Should be love forty") {
             givenSecondPlayerScore(3)
-            expect(tennis.score()).to(equal("love forty"))
+            scoreShouldBe("love forty")
         }
         it("Should be fifteen all") {
             givenFirstPlayerScore(1)
             givenSecondPlayerScore(1)
-            expect(tennis.score()).to(equal("fifteen all"))
+            scoreShouldBe("fifteen all")
         }
         it("Should be thirty all") {
             givenFirstPlayerScore(2)
             givenSecondPlayerScore(2)
-            expect(tennis.score()).to(equal("thirty all"))
+            scoreShouldBe("thirty all")
         }
         it("Should be duece") {
             givenFirstPlayerScore(3)
             givenSecondPlayerScore(3)
-            expect(tennis.score()).to(equal("duece"))
+            scoreShouldBe("duece")
         }
 
         func scoreShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
