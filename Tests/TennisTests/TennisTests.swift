@@ -6,21 +6,29 @@ import XCTest
 
 class Tennis {
     var firstPlayerScoreTimes = 0
+    var secondPlayerScoreTimes = 0
     func score() -> String {
         let scoreLookup = [
             1: "fifteen",
             2: "thirty",
             3: "forty",
         ]
+
         if (1 ... 3).contains(firstPlayerScoreTimes) {
             return "\(scoreLookup[firstPlayerScoreTimes]!) love"
         }
-
+        if secondPlayerScoreTimes == 1 {
+            return "love fifteen"
+        }
         return "love all"
     }
 
     func firstPlayerScore() {
         firstPlayerScoreTimes += 1
+    }
+
+    func secondPlayerScore() {
+        secondPlayerScoreTimes += 1
     }
 }
 
@@ -47,6 +55,11 @@ final class TennisTests: QuickSpec {
             givenFirstScore(3)
             expect(tennis.score()).to(equal("forty love"))
         }
+        it("Should be love fifteen") {
+            tennis.secondPlayerScore()
+            expect(tennis.score()).to(equal("love fifteen"))
+        }
+
         func scoreShouldBe(_ score: String, file: StaticString = #filePath, line: UInt = #line) {
             expect(file: file, line: line, tennis.score()).to(equal(score))
         }
